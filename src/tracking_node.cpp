@@ -51,6 +51,13 @@ namespace tracking_node {
     y = 0;
     c = 0;
 
+		cv::HOGDescriptor hog;
+	 	hog.setSVMDetector(cv::HOGDescriptor::getDefaultPeopleDetector());
+	 	cv::namedWindow("people detector", 1);
+		std::vector<cv::Rect> found, found_filtered;
+		hog.detectMultiScale(cv_ptr->image, found, 0, cv::Size(8,8), cv::Size(32,32), 1.05, 2);
+
+
     for(int i = 0; i <height; i++ )
     	for(int j = 0; j <width; j++ ) {
 				int posdata = i*step+j*channels; //Only H channel

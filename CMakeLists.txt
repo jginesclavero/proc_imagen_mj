@@ -16,12 +16,13 @@ find_package(catkin REQUIRED COMPONENTS
   image_transport
   pcl_conversions
   pcl_ros
+  rospy
 )
 
 catkin_package(
    INCLUDE_DIRS include
    LIBRARIES proc_imagen_mj
-   CATKIN_DEPENDS
+   CATKIN_DEPENDS rospy sensor_msgs cv_bridge
 #  DEPENDS system_lib
 )
 
